@@ -1,15 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
+import './index.css';
 import { Provider } from 'react-redux';
-import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import store from './store/store';
-
+import Routes from './routes/Routes';
+import { Auth0Provider } from '@auth0/auth0-react';
+import AuthRoutes from './routes/AuthRoutes';
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+console.log("domain", domain, clientId)
 ReactDOM.render(
   <Provider store={store}>
-    <App />
-  </Provider>, document.getElementById('root'));
+    <Routes />
+ <Auth0Provider
+  domain={domain}
+  clientId={clientId}
+  redirectUri={window.location.origin}>
+ </Auth0Provider>
+  </Provider>,
+  
+  document.getElementById('root'));
+
+
 
 // ReactDOM.render(
 //   <React.StrictMode>
