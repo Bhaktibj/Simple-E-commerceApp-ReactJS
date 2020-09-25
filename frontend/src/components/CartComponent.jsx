@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {Button} from 'reactstrap'
+import {Button, Row, Col} from 'reactstrap'
 const CartComponent=(props)=> {
 
   const cart = useSelector(state => state.cart);
@@ -27,15 +27,13 @@ const CartComponent=(props)=> {
 
   return <div className="cart">
     <div className="cart-list">
-      <ul className="cart-list-container">
-        <li>
+      {/* <ul className="cart-list-container"> */}
+        <Col>
+        <Row>
           <h3>
             Shopping Cart
           </h3>
-          <div>
-            Price
-          </div>
-        </li>
+          </Row>
         {
           cartItems.length === 0 ?
             <div>
@@ -43,10 +41,10 @@ const CartComponent=(props)=> {
           </div>
             :
             cartItems.map(item =>
-              <li>
+              <Col>
                 <div className="cart-image">
                   <img src={item.image} alt="product" />
-                </div>
+                <Col sm={{ size: 5, offset: 4}} className="mt-5">
                 <div className="cart-name">
                   <div>
                     <Link to={"/product/" + item.product}>
@@ -69,12 +67,14 @@ const CartComponent=(props)=> {
                 <div className="cart-price">
                   ${item.price}
                 </div>
-              </li>
+              </Col>
+              </div>
+              </Col>
             )
         }
-      </ul>
-
+      </Col>
     </div>
+    <Col>
     <div className="cart-action">
       <h3>
         Subtotal ( {cartItems.reduce((a, c) => a + c.qty, 0)} items)
@@ -84,9 +84,8 @@ const CartComponent=(props)=> {
       <Button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
         Proceed to Checkout
       </Button>
-
     </div>
-
+</Col>
   </div>
 }
 

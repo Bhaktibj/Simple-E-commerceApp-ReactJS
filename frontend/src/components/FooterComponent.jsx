@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = () => {
+const FooterComponent = () => {
     return (
         <div className="d-flex flex-column">
             <div id="page-content">
@@ -23,4 +23,4 @@ const Footer = () => {
 
 }
 
-export default Footer;
+export default FooterComponent;
