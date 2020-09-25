@@ -1,11 +1,21 @@
 import express from 'express';
 import products from './product';
-import config from './config';
+import * as config from './config';
+import mongoose from 'mongoose';
+import userRoutes from './router/userRoutes';
+import bodyParser from 'body-parser';
 
 const mongodb_url = config.MONGO_DB_URL;
+console.log("mog", mongodb_url)
 const app = express();
+mongoose.connect(mongodb_url,{
+  useNewUrlParser:true,
+  useUnifiedTopology:true,
+  useCreateIndex:true
+}).catch(error=>console.log(error.reason));
 
-
+app.use(bodyParser.json());
+app.use("/api/users", userRoutes);
 app.get("/api/products", (request, response) => {
   response.send(products.products);
 });

@@ -14,7 +14,23 @@ export default {
     "colorVariant": "5",
     "countInStock": 7,
     "image": "https://rukminim1.flixcart.com/image/460/552/jumzc7k0/sari/n/f/2/free-swati-dharmesh-enterprise-original-imaf2fz5ehjbywnu.jpeg?q=50"
-  },{
+  },
+  {
+    "id": 211,
+    "name": "Minus",
+    "price": 207,
+    "subCategoryId": 101,
+    "categoryId": 1,
+    "rate": 2.44,
+    "brand": "Yashika",
+    "review": 78,
+    "content": "Product is good",
+    "typeVariant": "D",
+    "colorVariant": "5",
+    "countInStock": 7,
+    "image": "https://rukminim1.flixcart.com/image/460/552/jumzc7k0/sari/n/f/2/free-swati-dharmesh-enterprise-original-imaf2fz5ehjbywnu.jpeg?q=50"
+  },
+  {
     "id": 202,
     "name": "Corporis",
     "price": 271,
